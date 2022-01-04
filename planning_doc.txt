@@ -1,0 +1,48 @@
+Required elements
+
+FileIO
+  Save game directory (git ignore?)
+Serializer
+  Position
+  Move history
+Gameboard class
+  8x8 2D array
+Square class?
+  color
+  coordinate: does a square know where it is?
+  edges: does a square point to adjacent squares?
+  occupant
+Player class
+Piece class
+  Name
+  Move pattern
+Piece Library (Module?)
+
+ConsoleUI
+  #display_board
+
+Move Validation
+  The piece can move there. **which class checks this?
+  The destination is empty or can be captured
+  The path is unobstructed
+  A potential board position must exist
+  The resulting position:
+    does not result in self check
+
+
+Move Processing
+  Piece captured?
+  Update piece location
+  Check new position for:
+    Check -> checkmate
+    Stalemate
+
+Git ignore saved games
+
+Knight's Travails used a tree to figure out where the knight can move.
+For most pieces the squares will have to be checked
+to see if they are occupied, and if it is friend or foe
+Where is check recorded?  Player? King? Gamestate?
+Do selected pieces show potential moves?
+Does a piece know what color square it is on?
+

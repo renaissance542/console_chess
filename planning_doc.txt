@@ -16,7 +16,9 @@ Player class
 Piece class
   Name
   Move pattern
+
 Piece Library (Module?)
+Piece Key?  N = Knight, K = King, etc
 
 ConsoleUI
   #display_board

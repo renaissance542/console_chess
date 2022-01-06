@@ -8,7 +8,9 @@ Metrics/BlockLength:
     - 'spec/*'
     - 'spec_answers/*'
 Metrics/MethodLength:
-  CountAsOne: ['array', 'heredoc']
+  CountAsOne: 
+    - 'array'
+
 Layout/LineLength:
   Exclude:
     - 'spec/*'

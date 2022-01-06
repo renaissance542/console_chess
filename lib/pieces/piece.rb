@@ -6,4 +6,3 @@ class Piece
     @color = color
   end
 end
-

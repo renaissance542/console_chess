@@ -3,17 +3,16 @@
 require_relative 'move'
 require_relative 'piece'
 
-# rook for chess game
-class Rook < Piece
+# queen for chess game
+class Queen < Piece
   attr_reader :moves
 
   def initialize(color)
     super(color)
     @moves = [
-      [1, 0],
-      [-1, 0],
-      [0, 1],
-      [0, -1]
+      [1, -1], [1, 0], [1, 1],
+      [0, -1], [0, 1],
+      [-1, -1], [-1, 0], [-1, 1]
     ].map { |xy| Move.new(x: xy[0], y: xy[1], repeat: true) }
   end
 end

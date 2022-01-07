@@ -1,28 +1,28 @@
 # frozen_string_literal: true
 
-require_relative 'pieces/king'
-require_relative 'pieces/queen'
-require_relative 'pieces/bishop'
-require_relative 'pieces/knight'
-require_relative 'pieces/pawn'
-require_relative 'pieces/rook'
+require_relative 'king'
+require_relative 'queen'
+require_relative 'bishop'
+require_relative 'knight'
+require_relative 'pawn'
+require_relative 'rook'
 
 # generate a chess piece
 class PieceFactory
   # rubocop:disable Metrics/MethodLength
   def self.create_piece(type, color)
     case type
-    when 'rook'
+    when :ROOK
       Rook.new(color)
-    when 'pawn'
+    when :PAWN
       Pawn.new(color)
-    when 'bishop'
+    when :BISHOP
       Bishop.new(color)
-    when 'knight'
+    when :KNIGHT
       Knight.new(color)
-    when 'king'
+    when :KING
       King.new(color)
-    when 'queen'
+    when :QUEEN
       Queen.new(color)
     else
       raise(ArgumentError, 'invalid chess piece type')

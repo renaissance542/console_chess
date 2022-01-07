@@ -4,7 +4,7 @@ require_relative 'move'
 require_relative 'piece'
 
 # pawn for chess game
-class Queen < Piece
+class Pawn < Piece
   attr_reader :moves
 
   def initialize(color)

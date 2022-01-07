@@ -19,18 +19,18 @@ class Gameboard
   # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
   def add_default_pieces
     # add pieces (black)
-    DefaultBoardLayout.constants.each do |sym|
-      DefaultBoardLayout.const_get(sym).each do |xy|
-        @board[xy[0]][xy[1]] = PieceFactory.create_piece(sym, 'black')
+    DefaultBoardLayout.piece_positions.each do |piece|
+      DefaultBoardLayout.const_get(piece).each do |xy|
+        @board[xy[0]][xy[1]] = PieceFactory.create_piece(piece, 'black')
       end
     end
 
     @board.map!(&:reverse)
 
     # add pieces (white)
-    DefaultBoardLayout.constants.each do |sym|
-      DefaultBoardLayout.const_get(sym).each do |xy|
-        @board[xy[0]][xy[1]] = PieceFactory.create_piece(sym, 'white')
+    DefaultBoardLayout.piece_positions.each do |piece|
+      DefaultBoardLayout.const_get(piece).each do |xy|
+        @board[xy[0]][xy[1]] = PieceFactory.create_piece(piece, 'white')
       end
     end
   end

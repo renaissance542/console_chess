@@ -16,4 +16,8 @@ class Rook < Piece
       [0, -1]
     ].map { |xy| Move.new(x: xy[0], y: xy[1], repeat: true) }
   end
+
+  def to_s
+    'R'
+  end
 end

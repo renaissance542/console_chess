@@ -45,7 +45,7 @@ describe Gameboard  do
 
       it '4 knights' do
         gameboard.add_default_pieces
-        expect(gameboard.board.flatten.count { |obj| obj.instance_of?(Knight) }).to eq(2)
+        expect(gameboard.board.flatten.count { |obj| obj.instance_of?(Knight) }).to eq(4)
       end
 
       it '4 bishops' do

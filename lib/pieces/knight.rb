@@ -30,4 +30,8 @@ class Knight < Piece
     end
     result.filter { |move| (move[0].between?(0, 7) && move[1].between?(0, 7)) }
   end
+
+  def to_s
+    'N'
+  end
 end

@@ -15,4 +15,8 @@ class Pawn < Piece
       [2, 0] # double move
     ].map { |xy| Move.new(x: xy[0], y: xy[1]) }
   end
+
+  def to_s
+    'P'
+  end
 end

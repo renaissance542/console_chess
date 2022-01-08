@@ -12,17 +12,17 @@ class PieceFactory
   # rubocop:disable Metrics/MethodLength
   def self.create_piece(type, color)
     case type
-    when :ROOK
+    when :rook
       Rook.new(color)
-    when :PAWN
+    when :pawn
       Pawn.new(color)
-    when :BISHOP
+    when :bishop
       Bishop.new(color)
-    when :KNIGHT
+    when :knight
       Knight.new(color)
-    when :KING
+    when :king
       King.new(color)
-    when :QUEEN
+    when :queen
       Queen.new(color)
     else
       raise(ArgumentError, 'invalid chess piece type')

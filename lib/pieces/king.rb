@@ -15,4 +15,8 @@ class King < Piece
       [-1, -1], [-1, 0], [-1, 1]
     ].map { |xy| Move.new(x: xy[0], y: xy[1]) }
   end
+
+  def to_s
+    'K'
+  end
 end

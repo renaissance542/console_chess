@@ -5,15 +5,14 @@ require_relative 'piece'
 
 # pawn for chess game
 class Pawn < Piece
-  attr_reader :moves
+  MOVES = [
+    Move.new(x: 0, y: 1, type: :move, repeat: false), # move forward
+    Move.new(x: -1, y: 1, type: :capture, repeat: false), # capture forward & en passant
+    Move.new(x: 1, y: 1, type: :capture, repeat: false) # capture forward & en passant
+  ].freeze
 
   def initialize(color)
     super(color)
-    @moves = [
-      [1, 0], # move forward
-      [1, -1], [1, 1], # capture forward & en passant
-      [2, 0] # double move
-    ].map { |xy| Move.new(x: xy[0], y: xy[1]) }
   end
 
   def to_s

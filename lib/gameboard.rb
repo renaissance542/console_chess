@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'board_setup'
+require_relative '../lib/pieces/piece_factory'
 
 # chess board that hold Pieces, moves pieces, and evaluates positions
 class Gameboard
@@ -9,18 +10,19 @@ class Gameboard
   attr_reader :board
 
   def initialize
-    # first level array are files a-h
-    # second level arrays are ranks 1-8
+    # board is array of columns (files a - h)
+    # each column is an array of squares (ranks 1 - 8)
     @board = Array.new(8) { Array.new(8, nil) }
-    @variant = :Fixme
-    @player1 = :Fixme
-    @player2 = :Fixme
   end
 
   def setup_pieces
-    setup_one_side('black')
+    setup_one_side(:black)
     @board.map!(&:reverse)
-    setup_one_side('white')
+    setup_one_side(:white)
+  end
+
+  def get_piece(square)
+    @board[square[0]][square[1]]
   end
 
   private

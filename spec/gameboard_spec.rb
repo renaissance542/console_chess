@@ -2,7 +2,6 @@
 # rubocop:disable Metrics/BlockLength
 
 require_relative '../lib/gameboard'
-require_relative '../lib/pieces/piece_factory'
 
 system("cls") || system("clear")
 
@@ -29,7 +28,7 @@ describe Gameboard  do
       it '16 white pieces' do
         gameboard.setup_pieces
         expect(gameboard.board.flatten.count do |obj|
-          obj && (obj.color == 'white')
+          obj && (obj.color == :white)
         end).to eq(16)
       end
 

@@ -24,14 +24,27 @@ ConsoleUI
   #display_board
 
 Move Validation
-  The piece can move there. **which class checks this?
-  The destination is empty or can be captured
-  The path is unobstructed
-  A potential board position must exist
-  The resulting position:
-    does not result in self check
+Build an array of all possible legal moves
+  * use start_square, board
+  * use piece.moves data to collect all possible end_squares
+    - move: blocked by any piece
+    - capture: blocked by self or empty square
+    - move_or_capture: blocked by self
+    - castle: complex conditions
+    - en_passent: complex conditions
+  * save start_square, end_squares, new_position, capture/promote 
+  * evaluate each new_position and remove self-checks from arry of legal moves
+Return "Invalid move" if the legal_moves array doesn't include players' inputted end_square
 
 
+Player enters a move
+Move is passed to Gameboard
+Move is processed
+  * invalid move returns to player input
+  * valid move updates movelist and board position
+
+Move_types: Invalid, Valid, Move, Capture, Castle, En_passent
+Data required: gameboard, movelist, piece type
 Move Processing
   Piece captured?
   Update piece location
@@ -41,10 +54,5 @@ Move Processing
 
 Git ignore saved games
 
-Knight's Travails used a tree to figure out where the knight can move.
-For most pieces the squares will have to be checked
-to see if they are occupied, and if it is friend or foe
-Where is check recorded?  Player? King? Gamestate?
-Do selected pieces show potential moves?
-Does a piece know what color square it is on?
+Todo: Square color
 

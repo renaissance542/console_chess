@@ -1,4 +1,4 @@
-# frozen_string_literal: true
+  # frozen_string_literal: true
 
 require_relative 'move'
 require_relative 'piece'
@@ -16,7 +16,8 @@ class Knight < Piece
       [2, -1],
       [-2, 1],
       [-2, -1]
-    ].map { |xy| Move.new(x: xy[0], y: xy[1], repeat: false) }
+    ]
+    # ].map { |xy| Move.new(x: xy[0], y: xy[1], repeat: false) }
   end
 
   # accepts a square of the board

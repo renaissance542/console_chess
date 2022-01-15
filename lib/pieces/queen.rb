@@ -19,4 +19,8 @@ class Queen < Piece
   def to_s
     'Q'
   end
+
+  def to_s
+    'Q'
+  end
 end

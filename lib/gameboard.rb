@@ -50,5 +50,4 @@ class Gameboard
 
   private
 
-  def check?; end
 end

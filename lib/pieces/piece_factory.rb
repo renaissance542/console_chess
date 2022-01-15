@@ -9,24 +9,20 @@ require_relative 'rook'
 
 # generate a chess piece
 class PieceFactory
-  # rubocop:disable Metrics/MethodLength
-  def self.create_piece(type, color)
-    case type
-    when :rook
-      Rook.new(color)
-    when :pawn
-      Pawn.new(color)
-    when :bishop
-      Bishop.new(color)
-    when :knight
-      Knight.new(color)
-    when :king
-      King.new(color)
-    when :queen
-      Queen.new(color)
-    else
-      raise(ArgumentError, 'invalid chess piece type')
-    end
+  PIECES = {
+    r: Rook,
+    p: Pawn,
+    b: Bishop,
+    n: Knight,
+    k: King,
+    q: Queen
+  }.freeze
+
+  def self.create_piece(fen_char)
+    color = fen_char.ord < 92 ? :white : :black 
+    klass = PIECES[fen_char.downcase.to_sym]
+    raise(ArgumentError, 'invalid chess piece type') if klass.nil?
+
+    klass.new(color)
   end
-  # rubocop:enable Metrics/MethodLength
 end

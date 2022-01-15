@@ -10,7 +10,8 @@ describe ConsoleUI do
   describe '#print_board' do
     it 'prints the damn board' do
       board = Gameboard.new
-      board.setup_pieces
+      fen = String.new('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')
+      board.load_fen(fen)
       console.print_board(board.board)
     end
 

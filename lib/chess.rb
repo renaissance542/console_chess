@@ -14,7 +14,8 @@ class Chess
   end
 
   def setup_pieces
-    @gameboard.setup_pieces
+    fen = String.new('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')
+    @gameboard.load_fen(fen)
   end
 
   def print_board
@@ -47,6 +48,8 @@ class Chess
     # check if destination is in legal moves
     valid_squares
   end
+
+  
 
   def save_game
     # write FEN to file

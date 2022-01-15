@@ -13,18 +13,12 @@ class Gameboard
     @board = Array.new(8) { Array.new(8, nil) }
   end
 
-  def setup_pieces
-    fen = String.new('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1')
-    load_fen(fen)
-  end
-
   def get_piece(square)
     @board[square[0]][square[1]]
   end
 
   # rubocop:disable all
-  # use a FEN file to set up the board
-  # below is sample FEN
+  # below is sample FEN for standard setup
   # 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
   def load_fen(fen)
     fen_parts = fen.split

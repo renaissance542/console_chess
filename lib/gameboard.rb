@@ -13,8 +13,8 @@ class Gameboard
     @board = Array.new(8) { Array.new(8, nil) }
   end
 
-  def get_piece(square)
-    @board[square[0]][square[1]]
+  def get_piece(coordinate)
+    @board[coordinate[0]][coordinate[1]]
   end
 
   # rubocop:disable all

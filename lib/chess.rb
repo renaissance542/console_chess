@@ -49,7 +49,12 @@ class Chess
     valid_squares
   end
 
-  
+  def alg_to_indices(algebraic)
+    file = algebraic[0].ord - 97
+    rank = algebraic[1].to_i - 1
+    [file, rank]
+  end
+
 
   def save_game
     # write FEN to file

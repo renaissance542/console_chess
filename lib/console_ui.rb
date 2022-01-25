@@ -6,7 +6,7 @@ class ConsoleUI
     line = String.new
     (0..7).reverse_each do |rank|
       board.each do |column|
-        square = column[rank] || 'O'
+        square = column[rank] || '-'
         line << square.to_s
       end
       line << "\n"

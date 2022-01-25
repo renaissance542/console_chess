@@ -2,12 +2,11 @@
 
 # how a chess piece can move
 class Move
-  def initialize(x:, y:, type:, repeat: false)
-    # rubocop:disable Naming/MethodParameterName
-    @x = x
-    @y = y
+  attr_reader :move, :repeat
+
+  def initialize(move, repeat)
+    @move = move
     @repeat = repeat
-    @type = type # move_only, capture_only, move_or_capture, en_passant, castle
   end
 
   # irb(main):006:0> bar = [-1, -3]

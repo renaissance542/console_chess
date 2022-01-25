@@ -3,8 +3,6 @@
 
 require_relative '../lib/gameboard'
 
-system("cls") || system("clear")
-
 describe Gameboard  do
   subject(:gameboard) { described_class.new }
 

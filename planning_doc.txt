@@ -23,17 +23,39 @@ Piece Key?  N = Knight, K = King, etc
 ConsoleUI
   #display_board
 
+player_move(start, land)
+  move_piece(start, land) if valid_move?(start, land)
+end
+
+move_piece(start, land)
+  gameboard(land) == gameboard(start)
+  update_movelist
+  update_othershit(castling, player turn, en passant, movecounts)
+end
+
+valid_move?(start, land)
+  moves = []
+  piece.get_moves.each do
+    moves << land if condition list met
+  end
+
 Move Validation
-Build an array of all possible legal moves
-  * use start_square, board
-  * use piece.moves data to collect all possible end_squares
-    - move: blocked by any piece
-    - capture: blocked by self or empty square
-    - move_or_capture: blocked by self
-    - castle: complex conditions
-    - en_passent: complex conditions
-  * save start_square, end_squares, new_position, capture/promote 
-  * evaluate each new_position and remove self-checks from arry of legal moves
+
+legal_moves = []
+MOVES.each do
+  loop move while repeat && current.nil?
+    1. Generate valid target square using piece.moves
+    # 2. Generate new position after move.
+    # 3. Is the resulting position valid?
+    #   - own king is not in check
+    4. legal_moves << target
+  end
+end
+  5. return array.include? target
+
+Update the position, or return false?
+
+
 Return "Invalid move" if the legal_moves array doesn't include players' inputted end_square
 
 

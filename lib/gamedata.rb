@@ -1,23 +1,19 @@
 # frozen_string_literal: true
 
-require_relative '../lib/pieces/piece_factory'
-
-# chess board that hold Pieces, moves pieces, and evaluates positions
-class Gameboard
-  attr_reader :board
+# stores all game instance data
+class Gamedata
+  attr_reader :gameboard, :castling, :en_passant, :white_player, :black_player,
+              :halfmove_count, :fullmove_count
 
   def initialize
-    # board is array of columns (files a - h)
-    # each column is an array of squares (ranks 1 - 8)
-    @board = Array.new(8) { Array.new(8, nil) }
-  end
-
-  def get_piece(coordinate)
-    @board[coordinate[0]][coordinate[1]]
-  end
-
-  def set_piece(file, rank, piece)
-    @board[file][rank] = piece
+    @gameboard = Gameboard.new
+    @active_color = ''
+    @castling = ''
+    @en_passant = ''
+    @halfmove_count = 0
+    @fullmove_count = 0
+    @white_player = ''
+    @black_player = ''
   end
 
   # rubocop:disable all
@@ -26,13 +22,14 @@ class Gameboard
   def load_fen(fen)
     fen_parts = fen.split
     # loop through the board by rank
+    
     (0..7).reverse_each do |rank|
       file = 0
       while file <= 7
         char = fen_parts[0].slice!(0)
-        # if character than place piece
+        # if character, then place piece
         if char.match?(/[[:alpha:]]/)
-          @board[file][rank] = PieceFactory.create_piece(char)
+          @gameboard.board[file][rank] = PieceFactory.create_piece(char)
         end
         file += 1
         file = (file - 1 + char.to_i) if char.to_i > 0
@@ -46,6 +43,11 @@ class Gameboard
     # fullmove number, incremented after black's turn
   end
 
-  private
 
+  def get_piece(coordinate)
+    @gameboard.board[coordinate[0]][coordinate[1]]
+  end
+
+
+  def to_fen; end
 end

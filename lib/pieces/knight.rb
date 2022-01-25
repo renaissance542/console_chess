@@ -1,6 +1,6 @@
   # frozen_string_literal: true
 
-require_relative 'move'
+require_relative '../moves/move'
 require_relative 'piece'
 
 # knight for chess game, moves L shape
@@ -33,6 +33,6 @@ class Knight < Piece
   end
 
   def to_s
-    'N'
+    color == :white ? 'K' : 'k'
   end
 end

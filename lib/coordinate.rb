@@ -15,7 +15,12 @@ class Coordinate
     Point.new(new_x, new_y)
   end
 
-
+  def alg_to_indices(algebraic)
+    file = algebraic[0].ord - 97
+    rank = algebraic[1].to_i - 1
+    [file, rank]
+  end
+  
   # irb(main):006:0> bar = [-1, -3]
   # => [-1, -3]
   # irb(main):007:0> arr

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'move'
+require_relative '../moves/move'
 require_relative 'piece'
 
 # king for chess game
@@ -13,14 +13,10 @@ class King < Piece
       [1, -1], [1, 0], [1, 1],
       [0, -1], [0, 1],
       [-1, -1], [-1, 0], [-1, 1]
-    ].map { |xy| Move.new(x: xy[0], y: xy[1],  type: :movecapture) }
+    ] #.map { |xy| Move.new(xy, type: :movecapture) }
   end
 
   def to_s
-    'K'
-  end
-
-  def to_s
-    'K'
+    color == :white ? 'K' : 'k'
   end
 end

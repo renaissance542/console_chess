@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../moves/move'
+require_relative '../moves/move_or_capture'
 require_relative 'piece'
 
 # rook for chess game
@@ -14,7 +14,7 @@ class Rook < Piece
       [-1, 0],
       [0, 1],
       [0, -1]
-    ] # .map { |xy| Move.new(distance: xy, type: :movecapture, repeat: true) }
+    ].map { |xy| MoveOrCapture.new(xy, true) }
   end
 
   def to_s

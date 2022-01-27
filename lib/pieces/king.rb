@@ -13,7 +13,7 @@ class King < Piece
       [1, -1], [1, 0], [1, 1],
       [0, -1], [0, 1],
       [-1, -1], [-1, 0], [-1, 1]
-    ] #.map { |xy| Move.new(xy, type: :movecapture) }
+    ].map { |xy| MoveOrCapture.new(xy, false) }
   end
 
   def to_s

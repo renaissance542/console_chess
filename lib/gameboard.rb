@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../lib/pieces/piece_factory'
-
-# chess board that hold Pieces, moves pieces, and evaluates positions
+# chess board that holds, adds, or removes pieces
 class Gameboard
   attr_reader :board
 
@@ -19,33 +17,4 @@ class Gameboard
   def set_piece(file, rank, piece)
     @board[file][rank] = piece
   end
-
-  # rubocop:disable all
-  # below is sample FEN for standard setup
-  # 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
-  def load_fen(fen)
-    fen_parts = fen.split
-    # loop through the board by rank
-    (0..7).reverse_each do |rank|
-      file = 0
-      while file <= 7
-        char = fen_parts[0].slice!(0)
-        # if character than place piece
-        if char.match?(/[[:alpha:]]/)
-          @board[file][rank] = PieceFactory.create_piece(char)
-        end
-        file += 1
-        file = (file - 1 + char.to_i) if char.to_i > 0
-      end
-      fen_parts[0].slice!(0) # remove the '/'
-    end
-    # set @active_color
-    # castling availability
-    # en passant target in algebraic
-    # halfmove clock for 50 move rule
-    # fullmove number, incremented after black's turn
-  end
-
-  private
-
 end

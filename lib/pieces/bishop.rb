@@ -12,7 +12,7 @@ class Bishop < Piece
     @moves = [
       [1, -1], [1, 1],
       [-1, -1], [-1, 1]
-    ] # .map { |xy| Move.new(distance: xy, type: :movecapture, repeat: true) }
+    ].map { |xy| MoveOrCapture.new(xy, true) }
   end
 
   def to_s

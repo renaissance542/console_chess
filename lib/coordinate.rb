@@ -2,17 +2,19 @@
 
 # how a chess piece can move
 class Coordinate
+  attr_accessor :x, :y
 
   # rubocop:disable Naming/MethodParameterName
   def initialize(x: 0, y: 0)
     @x = x
     @y = y
   end
+  # rubocop:enable Naming/MethodParameterName
 
-  def add(point)
-    new_x = @x + point.x
-    new_y = @y + point.y
-    Point.new(new_x, new_y)
+  def add(coordinate)
+    new_x = @x + coordinate.x
+    new_y = @y + coordinate.y
+    Coordinate.new(new_x, new_y)
   end
 
   def alg_to_indices(algebraic)

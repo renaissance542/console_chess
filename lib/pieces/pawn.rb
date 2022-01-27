@@ -2,6 +2,7 @@
 
 require_relative '../moves/moveonly'
 require_relative '../moves/capture'
+require_relative '../moves/double'
 # require_relative '../moves/move_or_capture'
 require_relative 'piece'
 
@@ -11,11 +12,13 @@ class Pawn < Piece
 
   def initialize(color)
     super(color)
+    one = color == :white ? 1 : -1
+    two = color == :white ? 2 : -2
     @moves = [
-      MoveOnly.new([0, 1], false), # move forward
-      MoveOnly.new([0, 2], false), # double
-      Capture.new([-1, 1], false), # capture forward & en passant
-      Capture.new([1, 1], false) # capture forward & en passant
+      MoveOnly.new([0, one], false), # move forward
+      Double.new([0, two], false), # double
+      Capture.new([-1, one], false), # capture forward 
+      Capture.new([1, one], false) # capture forward
     ].freeze
   end
 

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'pieces/piece_factory'
+
 # stores all game instance data
 class Gamedata
   attr_reader :gameboard, :castling, :en_passant, :white_player, :black_player,
@@ -36,11 +38,11 @@ class Gamedata
       end
       fen_parts[0].slice!(0) # remove the '/'
     end
-    # set @active_color
-    # castling availability
-    # en passant target in algebraic
-    # halfmove clock for 50 move rule
-    # fullmove number, incremented after black's turn
+    # TODO: set @active_color
+    # TODO: castling availability
+    # TODO: en passant target in algebraic
+    # TODO: halfmove clock for 50 move rule
+    # TODO: fullmove number, incremented after black's turn
   end
 
 
